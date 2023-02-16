@@ -1,23 +1,16 @@
 import "./App.css";
 import { useState } from "react";
-import Display from "./Display";
-import Btns from "./Btns";
-const App = () => {
-  const [counter, setCounter] = useState(0);
 
-  const update = (operator) => {
-    const fun = {
-      "+": () => setCounter(counter + 1),
-      "-": () => setCounter(counter - 1),
-      reset: () => setCounter(0),
-    };
-    fun[operator]();
-  };
+import Form from "./components/Challenge /Form";
+import Display from "./components/Challenge /Display";
+const App = () => {
+  const [ddt, setDdt] = useState("");
+  ddt = [];
   return (
     <div>
-      <Display counter={counter} />
-      <br />
-      <Btns update={update} />
+      <Form setDdt={setDdt} />
+      <hr />
+      <Display ddt={ddt} />
     </div>
   );
 };
