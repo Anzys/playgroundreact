@@ -1,33 +1,28 @@
 import React, { useState } from "react";
 import Chat from "../Chat";
 
-const Form = ({ setDdt }) => {
-  const [frmDt, setFrmDt] = useState("");
-  const getDt = (e) => {
+const Form = ({ setDis }) => {
+  const [ddt, setDdt] = useState("");
+  const eDdt = (e) => {
     const { value } = e.target;
-    setFrmDt(value);
+    setDdt(value);
   };
   const btnSubmit = (e) => {
     e.preventDefault();
-
-    setDdt(frmDt);
+    setDis(ddt);
   };
   return (
     <div>
-      <Chat frmDt={frmDt} /> {/*sending props */}
       <form onSubmit={btnSubmit}>
+        <Chat ddt={ddt} />
+        <label>Chat</label>
         <input
-          onChange={getDt}
           type="text"
-          name=" "
-          id=""
           required
-          placeholder="What is your wish?"
+          placeholder="Write your name"
+          onChange={eDdt}
         />
-        <br />
-        <button className="bg-warning color-light" type="submit">
-          Submit
-        </button>
+        <button type="Submit">Submit</button>
       </form>
     </div>
   );

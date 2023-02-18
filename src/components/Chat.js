@@ -1,7 +1,7 @@
 import React from "react";
 
-const Chat = ({ frmDt }) => {
-  return <div>Live View:{frmDt}</div>;
+const Chat = ({ ddt }) => {
+  return <div>Chat:{ddt}</div>;
 };
 
 export default Chat;
