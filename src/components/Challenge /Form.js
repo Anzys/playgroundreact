@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Chat from "../Chat";
 
-const Form = ({ setDis }) => {
+const Form = ({ handleOnSubmit }) => {
   const [ddt, setDdt] = useState("");
   const eDdt = (e) => {
     const { value } = e.target;
@@ -9,13 +9,13 @@ const Form = ({ setDis }) => {
   };
   const btnSubmit = (e) => {
     e.preventDefault();
-    setDis(ddt);
+    handleOnSubmit(ddt);
   };
   return (
     <div>
       <form onSubmit={btnSubmit}>
         <Chat ddt={ddt} />
-        <label>Chat</label>
+        <label>Chat:</label>
         <input
           type="text"
           required
@@ -24,6 +24,7 @@ const Form = ({ setDis }) => {
         />
         <button type="Submit">Submit</button>
       </form>
+      <br />
     </div>
   );
 };
